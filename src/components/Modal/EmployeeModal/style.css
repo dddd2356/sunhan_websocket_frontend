@@ -1,0 +1,138 @@
+/* 직원 관련 모달 스타일 */
+.modal-edit-body {
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    height: 500px;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+/* 모달 내용 스타일 */
+.employee-modal-content {
+    display: flex;
+    flex-direction: row; /* 옆으로 배치 */
+    justify-content: center;
+    align-items: flex-start; /* 상단에 맞춰서 정렬 */
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    max-width: 900px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: modalFadeIn 0.5s ease-out forwards;
+}
+
+/* 레이블 스타일 */
+.modal-edit-body label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    display: inline-block;
+    margin-right: 15px; /* label과 input 사이의 간격 */
+    width: 150px; /* label의 고정 너비 */
+}
+
+/* 입력 필드 스타일 */
+/* input과 select가 남은 공간을 동일하게 차지 */
+.modal-edit-body .form-group input,
+.modal-edit-body .form-group select {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+/* 입력 필드에 포커스 시 스타일 변경 */
+.modal-edit-body input:focus, .modal-edit-body select:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+/* 왼쪽, 오른쪽 항목을 나누기 위한 스타일 */
+.modal-edit-body .left-section, .modal-edit-body .right-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* 항목 간 간격 */
+    width: 45%; /* 각 섹션을 45% 너비로 설정 */
+}
+
+/* 버튼 그룹 */
+.modal-button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+/* 수정 버튼 스타일 */
+.modal-submit-btn, .modal-cancel-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 48%;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.modal-submit-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+/* 수정 버튼 호버 효과 */
+.modal-submit-btn:hover {
+    background-color: #2980b9;
+}
+
+/* 취소 버튼 스타일 */
+.modal-cancel-btn {
+    background-color: #ff0000;
+    color: black;
+}
+
+/* 취소 버튼 호버 효과 */
+.modal-cancel-btn:hover {
+    background-color: #e31616;
+}
+
+/* 이미지 스타일 */
+.modal-edit-body img {
+    margin-top: 10px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+/* 모달 닫기 버튼 */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* 이름, 직급, 전화번호 등의 항목을 가로로 배치 */
+.modal-edit-body .form-group {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: center;
+}
+
+.modal-actions {
+    display: flex;         /* 버튼들을 가로로 정렬 */
+    justify-content: flex-end;  /* 버튼들을 오른쪽 정렬 */
+    gap: 10px;             /* 버튼들 사이에 간격 추가 */
+}

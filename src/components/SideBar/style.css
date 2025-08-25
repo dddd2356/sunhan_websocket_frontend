@@ -1,0 +1,123 @@
+.sidebar {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 프로필 섹션 */
+.profile-section {
+    margin-bottom: 20px;
+}
+
+/* 프로필 헤더: 프로필 이미지와 정보 영역을 수평으로 배치 */
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    margin-left: 20px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 30px;
+}
+
+/* 정보 영역은 수직으로 정렬 (이름은 위, 직책은 아래) */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+
+}
+
+.profile-title {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* 프로필 버튼 */
+.profile-buttons {
+    margin-left: 20px;
+    display: flex;
+    gap: 25px;
+}
+
+.profile-buttons button {
+    background-color: #1abc9c;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+.profile-buttons button:hover {
+    background-color: #16a085;
+}
+
+/* 구분선 */
+.divider {
+    border: 0;
+    height: 1px;
+    background: #34495e;
+    margin: 20px 0;
+}
+
+/* 조직도 메뉴 */
+.main-menu {
+    list-style: circle;
+    margin: 15px;
+    padding: 0;
+}
+
+.menu-title {
+    cursor: pointer;
+    padding: 10px 0;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.menu-title:hover {
+    background-color: #34495e;
+}
+
+.sub-menu {
+    cursor: pointer;
+    list-style: none;
+    margin: 0;
+    padding-left: 20px;
+    background-color: #3c4b5c;
+}
+
+.sub-menu li {
+    margin: 10px 0;
+}
+
+.sub-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px 12px;
+    display: block;
+    transition: background-color 0.2s ease;
+}
+
+.sub-menu li a:hover {
+    background-color: #4a5a6a;
+}

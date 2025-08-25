@@ -1,0 +1,61 @@
+:root {
+    --header-height: 80px;
+    --sidebar-width: 250px;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.content-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    height: calc(100vh - var(--header-height));
+    /* …기존 스타일 유지… */
+}
+.sidebar.closed {
+    left: calc(-1 * var(--sidebar-width));
+}
+
+/* ✨ 수정된 main-content */
+.main-content {
+    /* 1) content-container 안에서 남은 공간을 모두 차지 */
+    flex: 1;
+
+    /* 2) 헤더 높이 만큼 아래로, 사이드바 너비 만큼 오른쪽으로 밀기 */
+    margin-top: var(--header-height);
+    margin-left: var(--sidebar-width);
+
+    /* 3) 남은 높이를 스크롤 가능하게 */
+    height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+
+    /* 4) 필요하다면 안쪽 여백 */
+    padding: 20px;
+    box-sizing: border-box;
+
+    /* 5) 사이드바 토글 애니메이션 */
+    transition: margin-left 0.3s ease;
+}
+
+/* 사이드바 닫혔을 때 */
+.main-content.full-width {
+    margin-left: 0;
+}
+
+/* 모바일 뷰: 항상 사이드바 없앰 */
+@media (max-width: 768px) {
+    .main-content,
+    .main-content.full-width {
+        margin-left: 0;
+    }
+}

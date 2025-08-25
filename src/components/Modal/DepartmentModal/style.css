@@ -1,0 +1,180 @@
+/* 부서 관련 모달 콘텐츠 */
+.department-modal-content {
+    display: flex;
+    flex-direction: column; /* 세로로 배치 */
+    align-items: center; /* 가로 중앙 정렬 */
+    justify-content: flex-start; /* 상단 정렬 */
+    text-align: left; /* 왼쪽 정렬 */
+    width: 100%;
+    max-width: 900px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: modalFadeIn 0.5s ease-out forwards;
+    max-height: none; /* max-height를 none으로 변경 */
+    overflow-y: auto; /* 수직 스크롤만 표시 */
+    overflow-x: hidden; /* 수평 스크롤 숨김 */
+    box-sizing: border-box; /* padding 포함 크기 설정 */
+}
+
+/* 부서명과 섹션 추가 버튼을 가로로 배치 */
+.department-modal-content .form-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 왼쪽 정렬 */
+    width: 100%;
+}
+
+/* 부서 이름 입력 필드 스타일 (부서명만 수정) */
+.department-modal-content .department-input{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+.department-modal-content .section-input {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+/* 부서명 입력 필드 레이블 */
+.department-modal-content .department-input label,
+.department-modal-content .section-input label {
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* 부서명 및 섹션 입력 필드 */
+.department-modal-content .department-input input,
+.department-modal-content .section-input input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%; /* 입력 칸의 너비를 100%로 설정하여 가로 스크롤 방지 */
+    box-sizing: border-box;
+}
+
+/* 섹션 입력 필드 */
+.section-input {
+    gap: 10px;
+    margin-bottom: 5px;
+    width: 100%; /* 섹션 입력 필드의 너비를 100%로 설정 */
+}
+
+.delete-section-btn {
+    background: #f44336;
+    padding: 10px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: inline-flex;        /* inline-flex로 설정 */
+    align-items: center;          /* 수직 가운데 정렬 */
+    white-space: nowrap;          /* 줄바꿈 없이 한 줄로 표시 */
+}
+
+
+.delete-section-btn:hover{
+    background-color: #c73827;
+}
+
+/* 모달 액션 버튼 스타일 */
+.modal-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-actions button[type="button"] {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.modal-actions button[type="button"]:hover {
+    background-color: #e0e0e0;
+}
+
+.modal-actions button[type="submit"] {
+    background-color: #2980b9; /* 저장 버튼 색상 */
+    color: white;
+}
+
+.modal-actions button[type="submit"]:hover {
+    background-color: #1f6584; /* hover 시 색상 변경 */
+}
+
+.add-section-btn {
+    background: linear-gradient(135deg, #2980b9, #3498db);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 14px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s ease;
+}
+
+.add-section-btn:hover {
+    background: linear-gradient(135deg, #1f6584, #2980b9);
+}
+
+.add-section-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.add-section-container {
+    width: 100%;
+    display: flex;
+    align-items: center; /* 세로 중앙 정렬 */
+    justify-content: space-between; /* 요소들을 양 끝에 배치 */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.section-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    text-align: center; /* 가운데 정렬 */
+    flex-grow: 1; /* 공간을 균등하게 나누어 정렬 */
+    display: flex;
+    justify-content: center;
+    margin-left: 50px;
+}
+
+.modal-content.open {
+    width: 90vw !important;       /* 뷰포트 너비의 90% */
+    max-width: 920px !important;   /* employee 모달과 비슷한 최대 너비 */
+    height: auto !important;       /* 내용 따라 유연하게 */
+    max-height: 80vh !important;   /* 화면 높이의 80% 안에서 스크롤 */
+}
+
+/* 2) department-modal-content 가 wrapper 전체를 채우도록 */
+.department-modal-content {
+    width: 100% !important;
+    /* max-width 는 wrapper 에서 걸었기 때문에 필요 없습니다 */
+    height: 100% !important;
+    overflow-y: auto;
+}

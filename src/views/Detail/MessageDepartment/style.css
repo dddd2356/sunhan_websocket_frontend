@@ -1,0 +1,138 @@
+/* TwoPaneLayout.css */
+
+:root {
+    --header-height: 80px;
+    --sidebar-width: 250px;
+}
+
+/* 헤더·사이드바 제외한 영역 flex‑center */
+.fullscreen-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - var(--header-height));
+    padding-left: var(--sidebar-width);
+    padding-right: 20px;
+    box-sizing: border-box;
+    transition: padding-left 0.3s ease;
+}
+
+/* 사이드바 닫혔을 때 */
+.fullscreen-container.full-width {
+    padding-left: 0;
+}
+
+@media (max-width: 768px) {
+    .fullscreen-container,
+    .fullscreen-container.full-width {
+        padding-left: 0;
+    }
+}
+
+.left-pane {
+    flex: 0 0 25%;       /* 왼쪽 프레임 너비 */
+    width: 360px; /* 조직도 박스 너비 */
+    height: 587px; /* 조직도 박스 높이 */
+    overflow-y: auto; /* 내용이 많으면 스크롤 */
+    border-right: 1px solid #ccc;
+    padding: 20px;
+}
+
+/* 조직도 스타일 */
+.left-pane .form-container1 {
+    width: 85%;
+    padding: 20px;
+    background: #f8f9fa;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+.left-pane .form-container1 h3 {
+    margin-bottom: 15px;
+}
+
+.left-pane .form-container1 ul {
+    list-style: circle;
+    padding: 0;
+}
+
+.left-pane .form-container1 li {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+    background-color: #fff; /* 기본 배경 색 */
+    color: #333; /* 글자 색 */
+}
+
+.left-pane .form-container1 li:hover {
+    background: #e9ecef;
+}
+
+.middle-pane {
+    flex: 0 0 20%;       /* 가운데 프레임 너비 */
+    width: 360px; /* 조직도 박스 너비 */
+    height: 587px; /* 조직도 박스 높이 */
+    overflow-y: auto; /* 내용이 많으면 스크롤 */
+    border-right: 1px solid #ccc;
+    padding: 20px;
+}
+
+.middle-pane .form-container2 {
+    width: 85%;
+    padding: 20px;
+    background: #f8f9fa;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+/* 선택된 부서 목록 스타일 */
+.middle-pane .form-container2 h3 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.middle-pane .form-container2 ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.middle-pane .form-container2 li {
+    background: #ffffff;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between; /* 텍스트와 버튼을 양쪽 정렬 */
+    align-items: center;
+    position: relative; /* 추가 */
+}
+
+.right-pane {
+    flex: 0 0 40%;       /* 오른쪽 프레임 너비 */
+    display: flex;
+    flex-direction: column;
+}
+
+
+.left-pane .add-btn {
+    margin-left: auto; /* 오른쪽으로 이동 */
+    background-color: #4caf50;
+    color: white;
+}
+
+.middle-pane .delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.middle-pane .centered {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

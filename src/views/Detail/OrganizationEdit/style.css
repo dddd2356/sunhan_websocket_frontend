@@ -1,0 +1,228 @@
+:root {
+    --header-height: 80px;
+    --sidebar-width: 250px;
+}
+
+/* 헤더·사이드바 제외한 공간을 flex‑center 로 */
+.fullscreen-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - var(--header-height));
+    padding-left: var(--sidebar-width);
+    padding-right: 20px;
+    box-sizing: border-box;
+    transition: padding-left 0.3s ease;
+}
+
+/* 사이드바 닫힘 시 패딩 제거 (Layout 에서 full-width 클래스 토글) */
+.fullscreen-container.full-width {
+    padding-left: 0;
+}
+
+/* 모바일뷰: 항상 좌측 여백 제거 */
+@media (max-width: 768px) {
+    .fullscreen-container,
+    .fullscreen-container.full-width {
+        padding-left: 0;
+    }
+}
+
+
+/* 두 박스(조직도, 직원 목록)를 좌우로 배치 */
+.box-container {
+    display: flex;
+    justify-content: space-between; /* 두 박스를 좌우로 배치 */
+    gap: 20px; /* 박스 간의 간격 */
+    width: 100%;
+    max-width: 1200px; /* 화면 너비 제한 */
+}
+
+/* 왼쪽 박스: 조직도 */
+.organization-container {
+    width: 360px; /* 조직도 박스 너비 */
+    height: 587px; /* 조직도 박스 높이 */
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow-y: auto;
+}
+
+.add-btn, .edit-btn, .delete-btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.add-btn {
+    margin-left: auto; /* 오른쪽으로 이동 */
+    background-color: #4caf50;
+    color: white;
+}
+
+.edit-btn {
+    background-color: #ffc107;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-group {
+    display: flex;
+    gap: 5px;
+    justify-content: flex-end; /* 버튼 오른쪽 정렬 */
+}
+
+
+/* 오른쪽 박스: 직원 목록 */
+.employee-list-container {
+    width: 680px; /* 직원 목록 박스 너비 */
+    height: 587px; /* 직원 목록 박스 높이 */
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow-y: auto;
+}
+
+/* 조직도 스타일 */
+.form-container1 {
+    width: 85%;
+    padding: 20px;
+    background: #f8f9fa;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+.form-container1 h3 {
+    display: flex;
+    justify-content: space-between; /* 좌측 제목, 우측 버튼 */
+    align-items: center; /* 수직 정렬 */
+    margin-bottom: 15px;
+}
+
+.form-container1 ul {
+    list-style: circle;
+    padding: 0;
+}
+
+/* 헤더 영역에 flex 적용 */
+.li-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 기존 li 스타일은 제거하거나 간소화 */
+.form-container1 li {
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+    background-color: #fff;
+    color: #333;
+}
+
+
+.li-text {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.form-container1 li:hover {
+    background: #e9ecef;
+}
+
+/* section-container는 기본 블록 요소 */
+.section-container {
+    margin-top: 10px;
+}
+
+/* 직원 카드 */
+.employee-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between; /* 좌우 정렬 및 여백 균등 배치 */
+}
+
+.employee-card {
+    position: relative;
+    width: 48%; /* 두 개씩 배치 (여백 고려) */
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-sizing: border-box; /* 패딩 포함한 크기 유지 */
+}
+
+.employee-profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.employee-info {
+    font-size: 14px;
+}
+
+.employee-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.employee-position {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.employee-phone {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.employee-dept {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.employee-section {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.error-message {
+    color: red;
+}
+
+.form-container2 {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+
+.employee-card .delete-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    color: red;
+    font-size: 18px;
+}
+
+.employee-card .delete-icon:hover {
+    color: darkred;
+}

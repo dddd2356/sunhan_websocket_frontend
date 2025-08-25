@@ -1,0 +1,90 @@
+/* MessageSender.css */
+:root {
+    --header-height: 80px;
+    --sidebar-width: 250px;
+}
+
+/* 헤더·사이드바 제외한 공간 flex‑center */
+.fullscreen-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - var(--header-height));
+    width: calc(100% - var(--sidebar-width));
+    margin-top: var(--header-height);
+    margin-left: var(--sidebar-width);
+    position: absolute; /* fixed 대신 absolute로 변경 */
+    top: 0;
+    left: 0;
+    background-color: #f5f6f8;
+    box-sizing: border-box;
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+/* 사이드바 닫힘 시 여백 제거 (Layout에서 토글) */
+.fullscreen-container.full-width {
+    padding-left: 0;
+}
+
+@media (max-width: 768px) {
+    .fullscreen-container,
+    .fullscreen-container.full-width {
+        padding-left: 0;
+    }
+}
+
+.form-container {
+    max-width: 800px;
+    width: 100%;
+    padding: 20px;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.form-container .message-sender {
+    max-width: 800px;
+    width: 95%;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+    margin: auto;  /* 부모 컨테이너 내에서 가로, 세로 중앙 정렬 */
+}
+
+/* 나머지 스타일은 그대로 */
+.message-textarea {
+    width: 96%;              /* textarea의 너비를 100%로 설정하여 부모 컨테이너를 꽉 채움 */
+    height: 100%;             /* textarea의 높이를 부모 컨테이너의 남은 공간을 꽉 채움 */
+    resize: none;            /* textarea 크기 조정 비활성화 */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;  /* 테두리 추가 (선택 사항) */
+}
+
+.send-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.send-button:hover {
+    background-color: #1b5e20;
+}
+
+.status-message {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.error-message {
+    color: red;
+}
