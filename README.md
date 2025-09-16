@@ -1,49 +1,66 @@
-# Getting Started with Create React App
+# Sunhan 사내 웹 메신저 Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📋 프로젝트 개요
+WebSocket 기반 실시간 사내 메신저 시스템의 프론트엔드입니다.
+OAuth 2.0 인증, 조직도 관리, 1:1/그룹 채팅, 개인/부서별 메시지 전송 등 
+기업 내부 커뮤니케이션에 최적화된 기능들을 제공합니다.
 
-## Available Scripts
+## 🔐 주요 기능
 
-In the project directory, you can run:
+### 1. 인증 및 회원 관리
+#### 🔑 회원가입 / 로그인
+- **OAuth 2.0 기반 인증**: 웹에서 이메일 인증 기능
+- **JWT 기반 인증**: Access Token, Refresh Token을 통한 보안 인증
+- **자동 로그인**: 토큰 기반 세션 유지
 
-### `npm start`
+#### 👥 직원 등록
+- **관리자 전용 기능**: 병원 학생석 고려한 구역 삭제 기능 
+- **부서별 관리**: 부서만 있는 경우 자원 제한
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 2. 마이페이지
+#### 📝 기본 정보 변경
+- **개인정보 수정**: 전화번호, 비밀번호, 프로필 사진 수정 기능
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### 🔍 소속 정보 확인
+- **조직도 연동**: 본인 소속 부서, 구역, 직급 정보 조회
 
-### `npm test`
+### 3. 조직도 CRUD
+#### 📊 조직도 관리
+- **등록된 직원 소속**: 부서 및 구역에 출력
+- **계층적 부서 구조**: 부서/구역 구조에 따라 계층적 부서 제공
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### ⚙️ 조직도 수정
+- **관리자 권한**: 인사 이동 반영 (부서/구역 변경)
 
-### `npm run build`
+#### ➕ 조직도 생성/삭제
+- **신규 부서 추가**: 구역 추가
+- **부서/구역 삭제**: 관리자 권한으로 조직 구조 관리
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 4. 사내 메신저 기능
+#### 💬 1대1 채팅방 생성
+- **직원 목록 클릭**: 채팅방 생성 버튼 → 실시간 1:1 채팅 시작
+- **프로필 이미지 캐싱**: 네트워크 부하 최소화
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### 👥 그룹 채팅방 생성
+- **조직도 UI 활용**: 다수 직원 선택 → 그룹명 입력 → 채팅방 생성
+- **입장/퇴장 알림**: "OO님이 들어왔습니다/나갔습니다" 시스템 메시지 발송
+- **초대 기능**: 퇴장 후 재초대 시 시스템 메시지로 알림
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 5. 메시지 전송
+#### 📨 전체 메시지 전송
+- **WebSocket 기반 채팅구현**: 전체 발송 시 전 직원에게 개인별로 메시지 전송
 
-### `npm run eject`
+#### 🏢 부서별 메시지 전송
+- **조직도 UI 부서 선택**: 해당 부서 직원들에게 개인별 메시지 발송
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### 👤 개인별 메시지 전송
+- **조직도 UI 개별 직원 선택**: 후 메시지 전송
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-=======
-# sunhan_websocket_frontend
-Sunhan 사내 웹 메신저
+## 🛠 기술 스택
+- **Frontend**: React.js
+- **인증**: OAuth 2.0, JWT (Access Token, Refresh Token)
+- **실시간 통신**: WebSocket
+- **상태 관리**: Context API 또는 Redux
+- **HTTP 클라이언트**: Axios
+- **UI 프레임워크**: Material-UI 또는 Ant Design
+- **빌드 도구**: Create React App
